@@ -19,6 +19,7 @@
 		488BCF711DF903F30021E4FC /* pokefont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 488BCF6F1DF903F30021E4FC /* pokefont.ttf */; };
 		488BCF751DF9BDDF0021E4FC /* music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 488BCF741DF9BDDF0021E4FC /* music.mp3 */; };
 		488BCF771DF9BDE90021E4FC /* music.png in Resources */ = {isa = PBXBuildFile; fileRef = 488BCF761DF9BDE90021E4FC /* music.png */; };
+		48AD474B1E01E432000D0A7A /* PokemonDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AD474A1E01E432000D0A7A /* PokemonDetailVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		488BCF6F1DF903F30021E4FC /* pokefont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = pokefont.ttf; sourceTree = "<group>"; };
 		488BCF741DF9BDDF0021E4FC /* music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = music.mp3; sourceTree = "<group>"; };
 		488BCF761DF9BDE90021E4FC /* music.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = music.png; sourceTree = "<group>"; };
+		48AD474A1E01E432000D0A7A /* PokemonDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonDetailVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,12 +70,12 @@
 		488BCF511DF89C260021E4FC /* Pokemon */ = {
 			isa = PBXGroup;
 			children = (
+				48AD47491E01E3A7000D0A7A /* Controller */,
 				488BCF721DF904250021E4FC /* Resources */,
 				488BCF691DF8A3D30021E4FC /* View */,
 				488BCF661DF89F570021E4FC /* Model */,
 				488BCF731DF904460021E4FC /* Util */,
 				488BCF521DF89C260021E4FC /* AppDelegate.swift */,
-				488BCF541DF89C260021E4FC /* ViewController.swift */,
 				488BCF561DF89C260021E4FC /* Main.storyboard */,
 				488BCF591DF89C260021E4FC /* Assets.xcassets */,
 				488BCF5B1DF89C260021E4FC /* LaunchScreen.storyboard */,
@@ -115,6 +117,15 @@
 				488BCF6C1DF8FBF10021E4FC /* csv.swift */,
 			);
 			name = Util;
+			sourceTree = "<group>";
+		};
+		48AD47491E01E3A7000D0A7A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				488BCF541DF89C260021E4FC /* ViewController.swift */,
+				48AD474A1E01E432000D0A7A /* PokemonDetailVC.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,6 +209,7 @@
 				488BCF551DF89C260021E4FC /* ViewController.swift in Sources */,
 				488BCF531DF89C260021E4FC /* AppDelegate.swift in Sources */,
 				488BCF6B1DF8A3F40021E4FC /* PokeCell.swift in Sources */,
+				48AD474B1E01E432000D0A7A /* PokemonDetailVC.swift in Sources */,
 				488BCF681DF89F6C0021E4FC /* Pokemon.swift in Sources */,
 				488BCF6D1DF8FBF10021E4FC /* csv.swift in Sources */,
 			);
