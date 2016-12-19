@@ -11,13 +11,36 @@ import UIKit
 class PokemonDetailVC: UIViewController {
     
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var mainImage: UIImageView!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var typeLabel: UILabel!
+    @IBOutlet weak var defenceLabel: UILabel!
+    @IBOutlet weak var heightLabel: UILabel!
+    @IBOutlet weak var pokedexIDLabel: UILabel!
+    @IBOutlet weak var weightLabel: UILabel!
+    @IBOutlet weak var baseAttackLabel: UILabel!
+    @IBOutlet weak var evolutionLabel: UILabel!
+    @IBOutlet weak var currentEvolutionImage: UIImageView!
+    @IBOutlet weak var nextEvolutionImage: UIImageView!
+    
     
     var pokemon: Pokemon!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        nameLabel.text = pokemon.name
+        nameLabel.text = pokemon.name.capitalized
+        pokemon.downloadPokemonDetails {
+            // will only be called after the network call is complete
+            self.updateUI()
+        }
+    }
+    
+    func updateUI() {
+        
     }
 
+    @IBAction func backButtonPressed(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
 }

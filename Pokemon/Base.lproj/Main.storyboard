@@ -169,28 +169,31 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ivysaur" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ccx-im-FCX">
-                                        <rect key="frame" x="109.5" y="-20" width="156" height="105"/>
+                                        <rect key="frame" x="63" y="-20" width="250" height="105"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="105" id="R7z-Rm-4yR"/>
-                                            <constraint firstAttribute="width" constant="156" id="WKB-GB-3JO"/>
+                                            <constraint firstAttribute="width" constant="250" id="WKB-GB-3JO"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="30"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h9R-5h-uFs">
-                                        <rect key="frame" x="8" y="13" width="57" height="38"/>
+                                        <rect key="frame" x="8" y="24" width="32" height="27"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="38" id="9yG-58-F2z"/>
-                                            <constraint firstAttribute="width" constant="57" id="gh3-Ow-zgi"/>
+                                            <constraint firstAttribute="height" constant="27" id="9yG-58-F2z"/>
+                                            <constraint firstAttribute="width" constant="32" id="gh3-Ow-zgi"/>
                                         </constraints>
                                         <state key="normal" image="back"/>
+                                        <connections>
+                                            <action selector="backButtonPressed:" destination="dSH-Pw-e12" eventType="touchUpInside" id="p0u-fz-bcP"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.34509803919999998" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="Ccx-im-FCX" firstAttribute="centerX" secondItem="TK0-Rp-aJP" secondAttribute="centerX" id="6Lz-Fu-2ev"/>
-                                    <constraint firstItem="h9R-5h-uFs" firstAttribute="centerY" secondItem="TK0-Rp-aJP" secondAttribute="centerY" id="A1z-1e-71e"/>
+                                    <constraint firstItem="h9R-5h-uFs" firstAttribute="centerY" secondItem="TK0-Rp-aJP" secondAttribute="centerY" constant="5" id="A1z-1e-71e"/>
                                     <constraint firstItem="Ccx-im-FCX" firstAttribute="centerY" secondItem="TK0-Rp-aJP" secondAttribute="centerY" id="CAZ-pC-v7G"/>
                                     <constraint firstItem="h9R-5h-uFs" firstAttribute="leading" secondItem="TK0-Rp-aJP" secondAttribute="leading" constant="8" id="DWl-qI-B5h"/>
                                     <constraint firstAttribute="height" constant="65" id="FgT-uV-zRt"/>
@@ -412,7 +415,7 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Y91-L7-0Ib">
-                                <rect key="frame" x="52.5" y="539" width="270" height="120"/>
+                                <rect key="frame" x="53" y="539" width="270" height="120"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2" translatesAutoresizingMaskIntoConstraints="NO" id="8IA-kG-VBg">
                                         <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
@@ -439,12 +442,23 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="baseAttackLabel" destination="Ex2-9h-RMD" id="1Lq-t5-VOZ"/>
+                        <outlet property="currentEvolutionImage" destination="8IA-kG-VBg" id="ybX-q5-SIl"/>
+                        <outlet property="defenceLabel" destination="iyb-B9-LMY" id="V0i-EK-fPW"/>
+                        <outlet property="descriptionLabel" destination="WNi-La-MCT" id="yA6-fK-ErE"/>
+                        <outlet property="evolutionLabel" destination="SrF-Uq-1xj" id="oaJ-Gf-fEm"/>
+                        <outlet property="heightLabel" destination="S3C-ML-S9M" id="ewe-oj-viK"/>
+                        <outlet property="mainImage" destination="ffR-BX-PQL" id="gMs-gw-f8u"/>
                         <outlet property="nameLabel" destination="Ccx-im-FCX" id="2fS-Yc-cpQ"/>
+                        <outlet property="nextEvolutionImage" destination="GRv-JF-SzC" id="rMN-xB-ETY"/>
+                        <outlet property="pokedexIDLabel" destination="wPU-0l-Idh" id="qeN-P6-9Qu"/>
+                        <outlet property="typeLabel" destination="eKU-9o-GyW" id="gWE-Kp-yQR"/>
+                        <outlet property="weightLabel" destination="3Jx-VM-968" id="lAh-mV-C2f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MZG-aC-K1T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="963.75" y="141.5492957746479"/>
+            <point key="canvasLocation" x="963.5" y="141.5"/>
         </scene>
     </scenes>
     <resources>
