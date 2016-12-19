@@ -20,6 +20,9 @@ class Pokemon {
     private var _weight: String!
     private var _attack: String!
     private var _nextEvolutionText: String!
+    private var _nextEvolutionName: String!
+    private var _nextEvolutionID: String!
+    private var _nextEvolutionLevel: String!
     private var _pokemonURL: String!
     
     var description: String {
@@ -71,6 +74,27 @@ class Pokemon {
         return _nextEvolutionText
     }
     
+    var nextEvolutionName: String {
+        if _nextEvolutionName == nil {
+            _nextEvolutionName = ""
+        }
+        return _nextEvolutionName
+    }
+    
+    var nextEvolutionID: String {
+        if _nextEvolutionID == nil {
+            _nextEvolutionID = ""
+        }
+        return _nextEvolutionID
+    }
+    
+    var nextEvolutionLevel: String {
+        if _nextEvolutionLevel == nil {
+            _nextEvolutionLevel = ""
+        }
+        return _nextEvolutionLevel
+    }
+    
     var name: String {
         return _name
     }
@@ -94,22 +118,23 @@ class Pokemon {
         Alamofire.request(_pokemonURL).responseJSON { (response) in
         
             if let dict = response.result.value as? Dictionary<String, Any> {
+                // weight
                 if let weight = dict["weight"] as? String {
                     self._weight = weight
                 }
-                
+                // height
                 if let height = dict["height"] as? String {
                     self._height = height
                 }
-                
+                // attack
                 if let attack = dict["attack"] as? Int {
                     self._attack = "\(attack)"
                 }
-                
+                // defence
                 if let defence = dict["defense"] as? Int {
                     self._defence = "\(defence)"
                 }
-                
+                // type
                 if let types = dict["types"] as? [Dictionary<String, String>] , types.count > 0 {
                     if let name = types[0]["name"] {
                         self._type = name.capitalized
@@ -124,6 +149,60 @@ class Pokemon {
                     }
                 } else {
                     self._type = ""
+                }
+                // description
+                if let descriptionsArray = dict["descriptions"] as? [Dictionary<String, String>] , descriptionsArray.count > 0 {
+                    
+                    if let url = descriptionsArray[0]["resource_uri"] {
+                        print("\(url)")
+                        
+                        let descriptionURL = "\(URL_BASE)\(url)"
+                        
+                        Alamofire.request(descriptionURL).responseJSON(completionHandler: { (response) in
+                            
+                            if let descriptionDict = response.result.value as? Dictionary<String, Any> {
+                                if let description = descriptionDict["description"] as? String {
+                                    
+                                    let newDescription = description.replacingOccurrences(of: "POKMON", with: "Pokemon")
+                                    print(newDescription)
+                                }
+                            }
+                            completed()
+                        })
+                    }
+                } else {
+                    self._description = ""
+                }
+                // evolutions
+                if let evolutions = dict["evolutions"] as? [Dictionary<String, Any>] , evolutions.count > 0 {
+                    
+                    if let nextEvolution = evolutions[0]["to"] as? String {
+                        
+                        if nextEvolution.range(of: "mega") == nil {
+                            
+                            self._nextEvolutionName = nextEvolution
+                            
+                            if let url = evolutions[0]["resource_uri"] as? String {
+                                
+                                let newString = url.replacingOccurrences(of: "/api/v1/pokemon/", with: "")
+                                let nextEvolutionID = newString.replacingOccurrences(of: "/", with: "")
+                                
+                                self._nextEvolutionID = nextEvolutionID
+                                
+                                if let levelExist = evolutions[0]["level"] {
+                                    if let level = levelExist as? Int {
+                                        self._nextEvolutionLevel = "\(level)"
+                                    }
+                                } else {
+                                    self._nextEvolutionLevel = ""
+                                }
+                            }
+                        }
+                    }
+                    
+                    print(self.nextEvolutionName)
+                    print(self.nextEvolutionID)
+                    print(self.nextEvolutionLevel)
                 }
             }
             completed()
