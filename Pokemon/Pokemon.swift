@@ -164,7 +164,7 @@ class Pokemon {
                                 if let description = descriptionDict["description"] as? String {
                                     
                                     let newDescription = description.replacingOccurrences(of: "POKMON", with: "Pokemon")
-                                    print(newDescription)
+                                    self._description = newDescription
                                 }
                             }
                             completed()
@@ -199,10 +199,6 @@ class Pokemon {
                             }
                         }
                     }
-                    
-                    print(self.nextEvolutionName)
-                    print(self.nextEvolutionID)
-                    print(self.nextEvolutionLevel)
                 }
             }
             completed()
